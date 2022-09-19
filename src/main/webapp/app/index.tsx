@@ -10,6 +10,10 @@ import ErrorBoundary from 'app/shared/error/error-boundary';
 import AppComponent from 'app/app';
 import { loadIcons } from 'app/config/icon-loader';
 
+import 'primereact/resources/themes/lara-light-indigo/theme.css'; //theme
+import 'primereact/resources/primereact.min.css'; //core css
+import 'primeicons/primeicons.css';
+
 const store = getStore();
 
 const actions = bindActionCreators({ clearAuthentication }, store.dispatch);
