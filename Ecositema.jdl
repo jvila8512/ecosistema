@@ -1,0 +1,55 @@
+
+entity TipoIdea {
+	tipoIdea String
+}
+entity Idea {
+	regionName String required,
+    numeroRegistro Integer required,
+    entidad String required,
+   titulo String required,
+   descripcion String required,
+   autor String required,
+   fechaIncripcion LocalDate
+}
+
+entity Reto {
+	reto String required
+    descripcion String required
+}
+entity Ecosistema{
+nombre String required maxlength(100)
+
+
+}
+entity UsuarioEcosistema{
+
+
+
+}
+
+
+
+// Set pagination options
+
+paginate Idea, Reto with pagination
+
+// Use Data Transfer Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl 
+
+relationship OneToMany {
+    
+       Reto{idea} to Idea{reto}
+       Ecosistema{usurioecosistema} to UsuarioEcosistema{ecosistema}
+       Ecosistema{reto} to Reto{ecosistema}
+       UsuarioEcosistema{user} to User
+}
+relationship OneToOne{
+  Idea{tipoidea} to TipoIdea
+
+
+}
+
+
